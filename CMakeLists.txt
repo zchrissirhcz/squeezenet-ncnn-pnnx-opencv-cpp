@@ -14,22 +14,15 @@ find_package(ncnn REQUIRED)
 set(OpenCV_DIR "D:/artifacts/opencv/4.9.0/windows/build/x64/vc16/lib")
 find_package(OpenCV REQUIRED)
 
-add_executable(ncnn_resnet
+add_executable(infer_squeezenet
     main.cpp
-    # gpt.cpp
 )
-target_link_libraries(ncnn_resnet PRIVATE ncnn ${OpenCV_LIBS})
+target_link_libraries(infer_squeezenet PRIVATE ncnn ${OpenCV_LIBS})
 
-cvpkg_copy_required_dlls(ncnn_resnet ${CMAKE_BINARY_DIR})
+cvpkg_copy_required_dlls(infer_squeezenet ${CMAKE_BINARY_DIR})
 
-add_custom_command(TARGET ncnn_resnet
+add_custom_command(TARGET infer_squeezenet 
     POST_BUILD
-
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/resnet18.ncnn.param ${CMAKE_BINARY_DIR}/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/resnet18.ncnn.bin ${CMAKE_BINARY_DIR}/
-
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/resnet50.ncnn.param ${CMAKE_BINARY_DIR}/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/resnet50.ncnn.bin ${CMAKE_BINARY_DIR}/
 
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/squeezenet_v1.1.param ${CMAKE_BINARY_DIR}/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_SOURCE_DIR}/squeezenet_v1.1.bin ${CMAKE_BINARY_DIR}/
