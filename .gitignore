@@ -1,0 +1,10 @@
+__pycache__/
+debug.bin
+debug.param
+debug2.bin
+debug2.param
+*.pnnx.param
+*.pnnx.bin
+*.pnnx.onnx
+*.pt
+build/*/**
