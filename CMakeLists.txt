@@ -7,7 +7,7 @@ include(cmake/cvpkg.cmake)
 include(cmake/output_dir2.cmake)
 
 # https://github.com/Tencent/ncnn/releases
-set(ncnn_DIR "D:/artifacts/ncnn/ncnn-20240102-windows-vs2022/x64/lib/cmake/ncnn")
+set(ncnn_DIR "D:/artifacts/ncnn/ncnn-20240102-windows-vs2022-shared/x64/lib/cmake/ncnn")
 find_package(ncnn REQUIRED)
 
 # https://github.com/opencv/opencv/releases/

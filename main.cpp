@@ -2,15 +2,21 @@
 
 #include "net.h"
 
-#include <algorithm>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc.hpp>
 #include <stdio.h>
 #include <vector>
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/core/utils/logger.hpp>
+
+static void disable_opencv_videoio_logging()
+{
+    cv::utils::logging::setLogLevel(cv::utils::logging::LogLevel::LOG_LEVEL_SILENT);
+}
 
 // There are 5 differences between squeezenet_v1.1.param and squeezenet_v1.1.ncnn.param
 static int detect_squeezenet_pnnx(const cv::Mat& bgr, std::vector<float>& cls_scores)
@@ -127,7 +133,7 @@ static int print_topk(const std::vector<float>& cls_scores, int topk, const std:
         int index = vec[i].second;
         ClassMeaning cm = class_meaning[index];
         fprintf(stdout, "top%d: index=%d, conf=%.3f, id=%s, meaning=%s\n", 
-            i,
+            i + 1,
             index,
             score,
             cm.id.c_str(),
@@ -178,6 +184,7 @@ static std::vector<ClassMeaning> read_class_meaing(const char* text_file_path)
 
 int main(int argc, char** argv)
 {
+    disable_opencv_videoio_logging();
     // if (argc != 2)
     // {
     //     fprintf(stderr, "Usage: %s [imagepath]\n", argv[0]);

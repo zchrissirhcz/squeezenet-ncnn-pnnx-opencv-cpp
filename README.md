@@ -26,9 +26,11 @@ pip install -U pnnx
 
 下载 ncnn: https://github.com/Tencent/ncnn/releases
 
-D:\artifacts\ncnn\ncnn-20240102-windows-vs2022
+我用的动态库, 解压到 `D:\artifacts\ncnn\ncnn-20240102-windows-vs2022-shared` 目录
 
 下载 opencv: https://github.com/opencv/opencv/releases/
+
+解压到 `D:\artifacts\opencv\4.9.0\windows` 目录
 
 ## 转模型
 
