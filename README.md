@@ -2,9 +2,11 @@
 
 ## 简介
 
-使用 pnnx 工具， 转换 PyTorch 模型到 ncnn 格式。然后用 opencv 读取图像， 用 ncnn 做推理， 执行图像分类，输出类别和置信度。
+使用 pnnx 工具， 转换 PyTorch 模型到 ncnn 格式。然后用 opencv 读取图像和imshow， 用 ncnn 做推理， 执行图像分类，输出类别和置信度。
 
 你可以基于这个工程， 直接(或者很少修改)放到 Android JNI / 车载开发板上部署。
+
+![](output.png)
 
 ## 安装 - Python 相关
 

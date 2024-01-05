@@ -6,6 +6,9 @@ import shutil
 required_files = [
     "squeezenet_v1.1.ncnn.param",
     "squeezenet_v1.1.ncnn.bin",
+
+    "squeezenet_v1.1.param",
+    "squeezenet_v1.1.bin",
 ]
 
 # remove *.param in root directory

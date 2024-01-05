@@ -194,7 +194,6 @@ int main(int argc, char** argv)
         fprintf(stderr, "cv::imread %s failed\n", imagepath);
         return -1;
     }
-
     const char* class_meaing_txt = "synset_words.txt";
     std::vector<ClassMeaning> class_meaning = read_class_meaing(class_meaing_txt);
 
@@ -206,6 +205,8 @@ int main(int argc, char** argv)
         print_topk(cls_scores, 3, class_meaning);
         fprintf(stdout, "----------\n");
     }
+    cv::imshow("image", m);
+    cv::waitKey(0);
 
     return 0;
 }
