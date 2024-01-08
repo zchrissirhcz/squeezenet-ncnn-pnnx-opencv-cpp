@@ -49,7 +49,6 @@ static int detect_squeezenet_pnnx(const cv::Mat& bgr, std::vector<float>& cls_sc
     //ex.extract("prob", out);
 
     // difference 5: manually call softmax on the fc output.
-    // manually call softmax on the fc output
     // convert result into probability
     // skip if your model already has softmax operation
     if(1)

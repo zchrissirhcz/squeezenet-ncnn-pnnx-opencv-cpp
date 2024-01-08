@@ -78,7 +78,6 @@ static int detect_squeezenet_pnnx(const cv::Mat& bgr, std::vector<float>& cls_sc
     //ex.extract("prob", out);
 
     // difference 5: manually call softmax on the fc output.
-    // manually call softmax on the fc output
     // convert result into probability
     // skip if your model already has softmax operation
     if(1)
@@ -105,9 +104,12 @@ static int detect_squeezenet_pnnx(const cv::Mat& bgr, std::vector<float>& cls_sc
 
 ## Debug
 
-VS 调试 C++ 代码，需要另行配置 Debug 版本的 ncnn, 需要自行编译。
+VS 调试当前 C++ 工程，如果 ncnn 和 opencv 都使用了动态库， 可以在 Debug 模式调试自己的代码。
+
+如果使用了 ncnn 静态库（zip名字不带 shared），需要自行编译安装 ncnn 的 VS Debug 版本。
 
 ## Referenecs
 
 - https://github.com/Tencent/ncnn
 - https://github.com/opencv/opencv
+
